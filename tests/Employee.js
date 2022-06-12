@@ -1,6 +1,7 @@
 function employee() {}
 
 employee.prototype.getName = function(str) {
+    ("Employee has entered their name")
     return str
 };
 
