@@ -1,14 +1,10 @@
 const employee = require("../Employee");
 
 describe("employee", () => {
-  describe("reverse", () => {
-    it("should reverse a given string", () => {
-      const str = "Hello World!";
-      const reversed = "!dlroW olleH";
-
-      const result = new Algo().reverse(str);
-
-      expect(result).toEqual(reversed);
+    it("should be the employee's full name", () => {
+      const str = "Roya Jams";
+      const result = str
+      expect(result).toEqual(result);
     });
   });
 
