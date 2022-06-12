@@ -4,13 +4,15 @@ const Algo = require("../tests/Employee");
 
 // name
 // getName() method
+describe("Algo", () => {
+
 describe("getName", () => {
     it("should be the employee's full name", () => {
         const str = "Roya Jams";
         const name = str
 
         const result = new Algo().getName(str);
-        expect(result).toEqual(true);
+        expect(result).toEqual(name);
     });
 });
 // ID number
@@ -20,7 +22,7 @@ describe("getId", () => {
         const str = "2";
         const id = str;
         const result = new Algo().getId(str);
-        expect(result).toEqual(true);
+        expect(result).toEqual(id);
     });
 });
 // email
@@ -30,8 +32,9 @@ describe("getEmail", () => {
         const str = "roya.jamshidpour@gmail.com";
         const email = str;
         const result = new Algo().getEmail(str);
-        expect(result).toEqual(true);
+        expect(result).toEqual(email);
     });
+});
 });
 
 
