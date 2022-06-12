@@ -1,4 +1,4 @@
-const Algo = require("../tests/Employee");
+const Algo = require("../Employee");
 
 // first test to get employee information 
 
