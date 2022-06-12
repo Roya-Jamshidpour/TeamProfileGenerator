@@ -1,9 +1,18 @@
-function employee() {}
+function Algo() {}
 
-employee.prototype.getName = function(str) {
+Algo.prototype.getName = function(str) {
     ("Employee has entered their name")
     return str
 };
 
+Algo.prototype.getId = function(str) {
+    ("Employee has entered their id")
+    return str
+};
 
-module.exports = employee;
+Algo.prototype.getEmail = function(str) {
+    ("Employee has entered their email")
+    return str
+};
+
+module.exports = Algo;

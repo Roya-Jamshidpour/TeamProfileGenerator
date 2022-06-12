@@ -1,33 +1,37 @@
-const employee = require("../Employee");
+const Algo = require("../tests/Employee");
 
 // first test to get employee information 
 
 // name
 // getName() method
-describe("name", () => {
+describe("getName", () => {
     it("should be the employee's full name", () => {
-      const str = "Roya Jams";
-      const name = str
-      expect(name).toEqual(true);
+        const str = "Roya Jams";
+        const name = str
+
+        const result = new Algo().getName(str);
+        expect(result).toEqual(true);
     });
-  });
+});
 // ID number
 // getId() method
-  describe("id", () => {
+describe("getId", () => {
     it("should be the employee's ID number", () => {
-      const str = "2";
-      const id = str;
-      expect(id).toEqual(true);
+        const str = "2";
+        const id = str;
+        const result = new Algo().getId(str);
+        expect(result).toEqual(true);
     });
-  });
-//   email
+});
+// email
 // getEmail() method
-  describe("email", () => {
+describe("getEmail", () => {
     it("should be the employee's email", () => {
-      const str = "roya.jamshidpour@gmail.com";
-      const email = str;
-      expect(email).toEqual(true);
+        const str = "roya.jamshidpour@gmail.com";
+        const email = str;
+        const result = new Algo().getEmail(str);
+        expect(result).toEqual(true);
     });
-  });
+});
 
 
