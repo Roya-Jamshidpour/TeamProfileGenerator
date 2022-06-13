@@ -4,9 +4,9 @@ const jest = require('jest');
 const fs = require('fs');
 // const Algo = require("./algo");
 
-const managerRole = require("./lib/Manager");
-const engineerRole = require("./lib/Engineer");
-const internRole = require("./lib/Intern");
+const manager = require("./lib/Manager");
+const engineer = require("./lib/Engineer");
+const intern = require("./lib/Intern");
 
 const genHTML = require("./dist/generateHTML")
 
@@ -63,7 +63,7 @@ inquirer
                     (employeeRole === "Intern") 
                  intern(userInput)
                 }
-                }
+            }
                 
                 
  
