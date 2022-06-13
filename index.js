@@ -45,20 +45,21 @@ inquirer
                     ],
                 },
             ])
+                .then(getRole(userInput => {
+                
+                let employeeRole = Role.userInput
+                if (employeeRole === "Manager") {
 
-                // getRole(userInput => {
+                 manager(userInput) 
 
-                // if (Role.userInput === "Manager")
-                // return manager(userInput)
+                } else if { 
+                    (employeeRole === "Engineer") 
+                 engineer(userInput)
 
-                // if (Role.userInput === "Engineer")
-                // return engineer(userInput)
-
-                // if (Role.userInput === "Intern")
-                // return intern(userInput)
-                //  }
-                // )
-                 
+                } else { 
+                    (employeeRole === "Intern") {
+                 intern(userInput)
+ 
 
 
 
