@@ -33,46 +33,33 @@ inquirer
             name: 'role',
             message: 'What the role of the employee?',
             choices: [
-                        {
-                            name: 'Manager',
-                        },
-                        {
-                            name: 'Engineer',
-                        },
-                        {
-                            name: 'Intern',
-                        },
-                    ],
+                {
+                    name: 'Manager',
                 },
-            ])
-                .then(getRole)
-                
-                function getRole(userInput) {
-                
-                let employeeRole = userInput.role
+                {
+                    name: 'Engineer',
+                },
+                {
+                    name: 'Intern',
+                },
+            ],
+        },
+    ])
+    .then(getRole)
+function getRole(userInput) {
 
-                if (employeeRole === "Manager") {
+    let employeeRole = userInput.role
 
-                 manager(userInput) 
+    if (employeeRole === "Manager") {
 
-                } else if
-                    (employeeRole === "Engineer") {
-                 engineer(userInput)
+        manager(userInput)
 
-                } else { 
-                    (employeeRole === "Intern") 
-                 intern(userInput)
-                }
-            }
-                
-                
- 
+    } else if
+        (employeeRole === "Engineer") {
+        engineer(userInput)
 
-
-
-                 
-                
-
-                 
-            
-        
+    } else {
+        (employeeRole === "Intern")
+        intern(userInput)
+    }
+}
