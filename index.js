@@ -45,20 +45,27 @@ inquirer
                     ],
                 },
             ])
-                .then(getRole(userInput => {
+                .then(getRole)
                 
-                let employeeRole = Role.userInput
+                function getRole(userInput) {
+                
+                let employeeRole = userInput.Role
+
                 if (employeeRole === "Manager") {
 
                  manager(userInput) 
 
-                } else if { 
-                    (employeeRole === "Engineer") 
+                } else if
+                    (employeeRole === "Engineer") {
                  engineer(userInput)
 
                 } else { 
-                    (employeeRole === "Intern") {
+                    (employeeRole === "Intern") 
                  intern(userInput)
+                }
+                }
+                
+                
  
 
 
