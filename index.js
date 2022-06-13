@@ -9,7 +9,7 @@ const fs = require('fs');
 // const intern = require("./lib/Intern");
 
 const genHTML = require("./createHTML")
-
+function employeeGeneral() {
 // questions asked to user
 inquirer
     .prompt([
@@ -44,96 +44,103 @@ inquirer
                 },
             ],
         },
-    
+
     ])
-// function to decide what next prompts will be based on employee type being entered
-    .then(getRole)
+    // calls function
+     .then(getRole)
+}
+    // function to decide what next prompts will be based on employee type being entered
+   
 function getRole(userInput) {
 
     let employeeRole = userInput.role
-
-    if (employeeRole === "Manager") {
-
-        return manager(userInput)
+    console.log(employeeRole)
+    if (employeeRole == "Manager") {
+         manager(userInput, employeeRole)
 
     } else if
-        (employeeRole === "Engineer") {
-        return engineer(userInput)
+        (employeeRole == "Engineer") {
+         engineer(userInput, employeeRole)
 
     } else {
-        (employeeRole === "Intern")
-        return intern(userInput)
+        (employeeRole == "Intern")
+         intern(userInput, employeeRole)
     }
 }
-function manager(userInput) {
-     inquirer
-    // questions ask about manager
-    .prompt([
-        {
-            type: 'input',
-            name: 'officeNumber',
-            message: 'What the office number of the manager?',
-        },
-        {
-            type: 'checkbox',
-            name: 'another',
-            message: 'Do you want to add another employee?',
-            choices: [
-                {
-                    name: 'Yes',
-                },
-                {
-                    name: 'No',
-                },
-            ],
-        },
-    ])
-    }
+function manager(userInput, employeeRole) {
+    inquirer
+        // questions ask about manager
+        .prompt([
+            {
+                type: 'input',
+                name: 'officeNumber',
+                message: 'What the office number of the manager?',
+            },
+            {
+                type: 'checkbox',
+                name: 'another',
+                message: 'Do you want to add another employee?',
+                choices: [
+                    {
+                        name: 'Yes',
+                    },
+                    {
+                        name: 'No',
+                    },
+                ],
+            },
+        ])
+         // .then(createPage)
+}
 // questions ask about intern
-    function intern(userInput) {
-        inquirer
-            .prompt([
-                {
-                    type: 'input',
-                    name: 'school',
-                    message: 'What the school of this intern?',
-                },
-                {
-                    type: 'checkbox',
-                    name: 'another',
-                    message: 'Do you want to add another employee?',
-                    choices: [
-                        {
-                            name: 'Yes',
-                        },
-                        {
-                            name: 'No',
-                        },
-                    ],
-                },
-            ])
-    }
-    // questions ask about engineer 
-    function engineer(userInput) {
-        inquirer
-            .prompt([
-                {
-                    type: 'input',
-                    name: 'gitHub',
-                    message: 'What the GitHub username of this engineer?',
-                },
-                {
-                    type: 'checkbox',
-                    name: 'another',
-                    message: 'Do you want to add another employee?',
-                    choices: [
-                        {
-                            name: 'Yes',
-                        },
-                        {
-                            name: 'No',
-                        },
-                    ],
-                },
-            ])
-    }
+function intern(userInput) {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'school',
+                message: 'What the school of this intern?',
+            },
+            {
+                type: 'checkbox',
+                name: 'another',
+                message: 'Do you want to add another employee?',
+                choices: [
+                    {
+                        name: 'Yes',
+                    },
+                    {
+                        name: 'No',
+                    },
+                ],
+            },
+        ])
+        // .then(createPage)
+}
+// questions ask about engineer 
+function engineer(userInput) {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'gitHub',
+                message: 'What the GitHub username of this engineer?',
+            },
+            {
+                type: 'checkbox',
+                name: 'another',
+                message: 'Do you want to add another employee?',
+                choices: [
+                    {
+                        name: 'Yes',
+                    },
+                    {
+                        name: 'No',
+                    },
+                ],
+            },
+        ])
+        // .then(createPage)
+}
+// function if user chooses to add another employee
+function anotherEmployee()
