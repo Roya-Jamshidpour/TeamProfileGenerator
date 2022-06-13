@@ -44,7 +44,9 @@ inquirer
                 },
             ],
         },
+    
     ])
+
     .then(getRole)
 function getRole(userInput) {
 
