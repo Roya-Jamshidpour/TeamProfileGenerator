@@ -65,3 +65,4 @@ function getRole(userInput) {
         intern(userInput)
     }
 }
+
