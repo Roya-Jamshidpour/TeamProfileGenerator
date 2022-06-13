@@ -30,7 +30,7 @@ inquirer
         },
         {
             type: 'checkbox',
-            name: 'Role',
+            name: 'role',
             message: 'What the role of the employee?',
             choices: [
                         {
@@ -49,7 +49,7 @@ inquirer
                 
                 function getRole(userInput) {
                 
-                let employeeRole = userInput.Role
+                let employeeRole = userInput.role
 
                 if (employeeRole === "Manager") {
 
