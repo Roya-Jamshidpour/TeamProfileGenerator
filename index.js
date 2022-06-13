@@ -8,7 +8,7 @@ const manager = require("./lib/Manager");
 const engineer = require("./lib/Engineer");
 const intern = require("./lib/Intern");
 
-const genHTML = require("./dist/generateHTML")
+const genHTML = require("./createHTML")
 
 // questions asked to user
 inquirer
