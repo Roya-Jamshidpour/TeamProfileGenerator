@@ -89,74 +89,74 @@ function manager(name, id, email) {
     }
 
 // // questions ask about intern
-// function intern(userInput) {
-//     inquirer
-//         .prompt([
-//             {
-//                 type: 'input',
-//                 name: 'school',
-//                 message: 'What the school of this intern?',
-//             },
-//             {
-//                 type: 'checkbox',
-//                 name: 'another',
-//                 message: 'Do you want to add another employee?',
-//                 choices: [
-//                     {
-//                         name: 'Yes',
-//                     },
-//                     {
-//                         name: 'No',
-//                     },
-//                 ],
-//             },
-//         ])
-//         .then(anotherEmployee)
-// }
+function intern(name, id, email) {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'school',
+                message: 'What the school of this intern?',
+            },
+            {
+                type: 'checkbox',
+                name: 'another',
+                message: 'Do you want to add another employee?',
+                choices: [
+                    {
+                        name: 'Yes',
+                    },
+                    {
+                        name: 'No',
+                    },
+                ],
+            },
+        ])
+        .then(answers => {
+            const internObj = new Intern(answers.name, answers.id, answers.email, answers.officeNumber)
+            info.push(internObj)
+            if (answers.another === "No"){
+                return;
+            } else {
+                employeeQ()
+
+         }
+        })                   
+}
 // // questions ask about engineer 
-// function engineer(userInput) {
-//     inquirer
-//         .prompt([
-//             {
-//                 type: 'input',
-//                 name: 'gitHub',
-//                 message: 'What the GitHub username of this engineer?',
-//             },
-//             {
-//                 type: 'checkbox',
-//                 name: 'another',
-//                 message: 'Do you want to add another employee?',
-//                 choices: [
-//                     {
-//                         name: 'Yes',
-//                     },
-//                     {
-//                         name: 'No',
-//                     },
-//                 ],
-//             },
-//         ])
+function engineer(name, id, email) {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'gitHub',
+                message: 'What the GitHub username of this engineer?',
+            },
+            {
+                type: 'checkbox',
+                name: 'another',
+                message: 'Do you want to add another employee?',
+                choices: [
+                    {
+                        name: 'Yes',
+                    },
+                    {
+                        name: 'No',
+                    },
+                ],
+            },
+        ])
+        .then(answers => {
+            const engineerObj = new Engineer(answers.name, answers.id, answers.email, answers.officeNumber)
+            info.push(engineerObj)
+            if (answers.another === "No"){
+                return;
+            } else {
+                employeeQ()
 
-//         anotherEmployee(userInput) 
+         }
+        })    
     
-// }
-    
-// // // function if user chooses to add another employee
-// function anotherEmployee(userInput) {
-//     if (userInput.another === 'Yes') {
-   
-//     employeeQ()
-
-//     } else {
-//     // forwardInfo(userInput, employeeRole)
-//     console.log('said no')
-// }
-// }
-
-// function forwardInfo(userInput, employeeRole) {
-    
-//     console.log(userInput, employeeRole)
-// }
+}
 
 // calls initial function
 employeeQ()
