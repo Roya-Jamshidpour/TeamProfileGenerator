@@ -2,15 +2,17 @@
 const inquirer = require('inquirer');
 const jest = require('jest');
 const fs = require('fs');
+const createPage = require('./createHTML')
+var http = require('http');
 // const Algo = require("./algo");
 
 // const manager = require("./lib/Manager");
 // const engineer = require("./lib/Engineer");
 // const intern = require("./lib/Intern");
 
-const genHTML = require("./createHTML")
-function employeeGeneral() {
-// questions asked to user
+employeeQ()
+// questions asked to user about employee
+function employeeQ() {
 inquirer
     .prompt([
         {
@@ -45,10 +47,12 @@ inquirer
             ],
         },
 
-    ])
-    // calls function
-     .then(getRole)
+    ])  
+    .then(getRole)
 }
+    // calls function
+   
+
     // function to decide what next prompts will be based on employee type being entered
    
 function getRole(userInput) {
@@ -90,7 +94,7 @@ function manager(userInput, employeeRole) {
                 ],
             },
         ])
-         // .then(createPage)
+
 }
 // questions ask about intern
 function intern(userInput) {
@@ -115,7 +119,6 @@ function intern(userInput) {
                 ],
             },
         ])
-        // .then(createPage)
 }
 // questions ask about engineer 
 function engineer(userInput) {
@@ -140,7 +143,15 @@ function engineer(userInput) {
                 ],
             },
         ])
-        // .then(createPage)
-}
-// function if user chooses to add another employee
-function anotherEmployee()
+       
+        .then(userInput, employeeRole => createPage(userInput, employeeRole)) 
+        .then (index => {
+            fs.writeFile("index.html", index, err => {
+                if (err){
+                    return;
+                }
+            })
+        }
+)}
+// // function if user chooses to add another employee
+// function anotherEmployee()
