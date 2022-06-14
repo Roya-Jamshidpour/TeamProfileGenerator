@@ -3,16 +3,13 @@ const inquirer = require('inquirer');
 const jest = require('jest');
 const fs = require('fs');
 const createPage = require('./createHTML')
-var http = require('http');
-const { userInfo } = require('os');
-const internal = require('stream');
 // const Algo = require("./algo");
 
 const info = []
 
 const Manager = require("./lib/Manager");
-// const engineer = require("./lib/Engineer");
-// const intern = require("./lib/Intern");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
 // questions asked to user about employee
 function employeeQ() {
@@ -54,8 +51,6 @@ inquirer
                         break;
                         default : employeeQ()
         }
-
-
    })
 }
 
@@ -83,12 +78,16 @@ function manager(name, id, email) {
             },
         ])
         .then(answers => {
-            const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
-            info.push(Manager)
-            if another = "No" then break
+            const managerObj = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
+            info.push(managerObj)
+            if (answers.another === "No"){
+                return;
+            } else {
+                employeeQ()
         }
+        })
+    }
 
-}
 // // questions ask about intern
 // function intern(userInput) {
 //     inquirer
@@ -159,4 +158,5 @@ function manager(name, id, email) {
 //     console.log(userInput, employeeRole)
 // }
 
+// calls initial function
 employeeQ()
