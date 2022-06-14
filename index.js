@@ -4,13 +4,16 @@ const jest = require('jest');
 const fs = require('fs');
 const createPage = require('./createHTML')
 var http = require('http');
+const { userInfo } = require('os');
+const internal = require('stream');
 // const Algo = require("./algo");
 
-// const manager = require("./lib/Manager");
+const info = []
+
+const Manager = require("./lib/Manager");
 // const engineer = require("./lib/Engineer");
 // const intern = require("./lib/Intern");
 
-employeeQ()
 // questions asked to user about employee
 function employeeQ() {
 inquirer
@@ -31,47 +34,32 @@ inquirer
             message: 'What the email of the employee?',
         },
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'role',
             message: 'What the role of the employee?',
-            choices: [
-                {
-                    name: 'Manager',
-                },
-                {
-                    name: 'Engineer',
-                },
-                {
-                    name: 'Intern',
-                },
-            ],
+            choices: [ "Manager", "Engineer", "Intern"]
         },
 
     ])  
-    .then(getRole)
+   .then(userInput => {
+        switch(userInput.role) {
+            case "Engineer" :
+                engineer()
+                break;
+                case "Intern" :
+                    intern()
+                    break;
+                    case "Manager" :
+                        manager()
+                        break;
+                        default : employeeQ()
+        }
+
+
+   })
 }
-    // calls function
-   
 
-    // function to decide what next prompts will be based on employee type being entered
-   
-function getRole(userInput) {
-
-    let employeeRole = userInput.role
-    console.log(employeeRole)
-    if (employeeRole == "Manager") {
-         manager(userInput, employeeRole)
-
-    } else if
-        (employeeRole == "Engineer") {
-         engineer(userInput, employeeRole)
-
-    } else {
-        (employeeRole == "Intern")
-         intern(userInput, employeeRole)
-    }
-}
-function manager(userInput, employeeRole) {
+function manager(name, id, email) {
     inquirer
         // questions ask about manager
         .prompt([
@@ -94,64 +82,81 @@ function manager(userInput, employeeRole) {
                 ],
             },
         ])
+        .then(answers => {
+            const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
+            info.push(Manager)
+            if another = "No" then break
+        }
 
 }
-// questions ask about intern
-function intern(userInput) {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                name: 'school',
-                message: 'What the school of this intern?',
-            },
-            {
-                type: 'checkbox',
-                name: 'another',
-                message: 'Do you want to add another employee?',
-                choices: [
-                    {
-                        name: 'Yes',
-                    },
-                    {
-                        name: 'No',
-                    },
-                ],
-            },
-        ])
-}
-// questions ask about engineer 
-function engineer(userInput) {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                name: 'gitHub',
-                message: 'What the GitHub username of this engineer?',
-            },
-            {
-                type: 'checkbox',
-                name: 'another',
-                message: 'Do you want to add another employee?',
-                choices: [
-                    {
-                        name: 'Yes',
-                    },
-                    {
-                        name: 'No',
-                    },
-                ],
-            },
-        ])
-       
-        .then(userInput, employeeRole => createPage(userInput, employeeRole)) 
-        .then (index => {
-            fs.writeFile("index.html", index, err => {
-                if (err){
-                    return;
-                }
-            })
-        }
-)}
-// // function if user chooses to add another employee
-// function anotherEmployee()
+// // questions ask about intern
+// function intern(userInput) {
+//     inquirer
+//         .prompt([
+//             {
+//                 type: 'input',
+//                 name: 'school',
+//                 message: 'What the school of this intern?',
+//             },
+//             {
+//                 type: 'checkbox',
+//                 name: 'another',
+//                 message: 'Do you want to add another employee?',
+//                 choices: [
+//                     {
+//                         name: 'Yes',
+//                     },
+//                     {
+//                         name: 'No',
+//                     },
+//                 ],
+//             },
+//         ])
+//         .then(anotherEmployee)
+// }
+// // questions ask about engineer 
+// function engineer(userInput) {
+//     inquirer
+//         .prompt([
+//             {
+//                 type: 'input',
+//                 name: 'gitHub',
+//                 message: 'What the GitHub username of this engineer?',
+//             },
+//             {
+//                 type: 'checkbox',
+//                 name: 'another',
+//                 message: 'Do you want to add another employee?',
+//                 choices: [
+//                     {
+//                         name: 'Yes',
+//                     },
+//                     {
+//                         name: 'No',
+//                     },
+//                 ],
+//             },
+//         ])
+
+//         anotherEmployee(userInput) 
+    
+// }
+    
+// // // function if user chooses to add another employee
+// function anotherEmployee(userInput) {
+//     if (userInput.another === 'Yes') {
+   
+//     employeeQ()
+
+//     } else {
+//     // forwardInfo(userInput, employeeRole)
+//     console.log('said no')
+// }
+// }
+
+// function forwardInfo(userInput, employeeRole) {
+    
+//     console.log(userInput, employeeRole)
+// }
+
+employeeQ()
