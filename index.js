@@ -149,7 +149,8 @@ function engineer(name, id, email) {
             const engineerObj = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
             info.push(engineerObj)
             if (answers.another === "No"){
-                return;
+                // this doesn't work
+                return console.log("No more employees to enter");
             } else {
                 employeeQ()
 
