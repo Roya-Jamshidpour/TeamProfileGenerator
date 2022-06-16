@@ -112,7 +112,7 @@ function intern(name, id, email) {
             },
         ])
         .then(answers => {
-            const internObj = new Intern(answers.name, answers.id, answers.email, answers.officeNumber)
+            const internObj = new Intern(answers.name, answers.id, answers.email, answers.school)
             info.push(internObj)
             if (answers.another === "No"){
                 return;
@@ -146,7 +146,7 @@ function engineer(name, id, email) {
             },
         ])
         .then(answers => {
-            const engineerObj = new Engineer(answers.name, answers.id, answers.email, answers.officeNumber)
+            const engineerObj = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
             info.push(engineerObj)
             if (answers.another === "No"){
                 return;
