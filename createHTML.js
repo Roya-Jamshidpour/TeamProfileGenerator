@@ -1,6 +1,8 @@
 
 
-function createPage(userInput, employeeRole) {
+
+
+function createPage(answers, employeeRole) {
     return `hello world
     `
 };
